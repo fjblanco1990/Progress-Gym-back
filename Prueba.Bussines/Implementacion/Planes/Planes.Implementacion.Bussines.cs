@@ -22,6 +22,42 @@ namespace Prueba.Bussines.Implementacion.Planes
             this._IPlanes_Data = _IPlanes_Data;
         }
 
+        public bool GuardarPlan(Planes_Dto plan)
+        {
+            try
+            {
+                return this._IPlanes_Data.GuardarPlan(plan);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool EditarPlan(Planes_Dto plan)
+        {
+            try
+            {
+                return this._IPlanes_Data.EditarPlan(plan);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool EliminarPlan(int idPlan)
+        {
+            try
+            {
+                return this._IPlanes_Data.EliminarPlan(idPlan);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<Planes_Dto> GetPlanes()
         {
             try

@@ -37,7 +37,7 @@ namespace Prueba_Api.Controllers.Ventas
             }
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("GetVentasUnicasDiarias")]
         public HttpResponseMessage GetVentasUnicasDiarias(Dates dates)
         {

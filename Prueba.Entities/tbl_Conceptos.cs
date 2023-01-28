@@ -16,5 +16,6 @@ namespace Prueba.Entities
     {
         public int Id_Concepto { get; set; }
         public string Descripcion { get; set; }
+        public Nullable<int> valor_concepto { get; set; }
     }
 }

@@ -30,6 +30,7 @@ namespace Prueba.Data.Implementacion.Ingresos
 
 
             _Progress_gymEntities.tbl_LOG_IngresosXCliente.Add(mapperDataLog);
+            _Progress_gymEntities.SaveChanges();
             _Progress_gymEntities.tbl_IngresosXCliente.Add(mapperData);
             _Progress_gymEntities.SaveChanges();
             return true;

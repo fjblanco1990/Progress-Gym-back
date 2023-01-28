@@ -1,4 +1,5 @@
 ﻿using Prueba.Bussines.Interfaz.Conceptos;
+using Prueba.Entities.Dtos.Conceptos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,48 @@ namespace Prueba_Api.Controllers.Conceptos
             try
             {
                 return Request.CreateResponse(HttpStatusCode.OK, _IConceptos_Bussines.getConceptos());
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        [HttpPost]
+        [Route("GuardarConcepto")]
+        public HttpResponseMessage GuardarConcepto(Conceptos_Dto concepto)
+        {
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, _IConceptos_Bussines.GuardarConcepto(concepto));
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        [HttpPost]
+        [Route("EditarConcepto")]
+        public HttpResponseMessage EditarConcepto(Conceptos_Dto concepto)
+        {
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, _IConceptos_Bussines.EditarConcepto(concepto));
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("EliminarConcepto")]
+        public HttpResponseMessage EliminarConcepto(int idConcepto)
+        {
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, _IConceptos_Bussines.EliminarConcepto(idConcepto));
             }
             catch (Exception ex)
             {

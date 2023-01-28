@@ -11,6 +11,7 @@
           </Key>
           <Property Name="Id_Concepto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Descripcion" Type="nvarchar(max)" />
+          <Property Name="valor_concepto" Type="int" />
         </EntityType>
         <EntityType Name="tbl_Forma_Pago">
           <Key>
@@ -170,9 +171,9 @@
           <EntitySet Name="tbl_pro_Clientes" EntityType="Self.tbl_pro_Clientes" />
           <EntitySet Name="tbl_pro_Usuarios" EntityType="Self.tbl_pro_Usuarios" />
           <EntitySet Name="tbl_LOG_IngresosXCliente" EntityType="Pogress_gymModel.tbl_LOG_IngresosXCliente" />
-          <EntitySet Name="tbl_Conceptos" EntityType="Pogress_gymModel.tbl_Conceptos" />
           <EntitySet Name="tbl_Ventas" EntityType="Pogress_gymModel.tbl_Ventas" />
           <EntitySet Name="tbl_ventas_clientes" EntityType="Pogress_gymModel.tbl_ventas_clientes" />
+          <EntitySet Name="tbl_Conceptos" EntityType="Pogress_gymModel.tbl_Conceptos" />
         </EntityContainer>
         <EntityType Name="tbl_LOG_IngresosXCliente">
           <Key>
@@ -182,13 +183,6 @@
           <Property Name="Id_Cliente" Type="Int32" Nullable="false" />
           <Property Name="Fecha_Ingreso" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Hora_Ingreso" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="tbl_Conceptos">
-          <Key>
-            <PropertyRef Name="Id_Concepto" />
-          </Key>
-          <Property Name="Id_Concepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tbl_Ventas">
           <Key>
@@ -208,6 +202,14 @@
           <Property Name="Id_Plan" Type="Int32" Nullable="false" />
           <Property Name="Valor_Venta" Type="Int32" Nullable="false" />
           <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="tbl_Conceptos">
+          <Key>
+            <PropertyRef Name="Id_Concepto" />
+          </Key>
+          <Property Name="Id_Concepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="valor_concepto" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -284,14 +286,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tbl_Conceptos">
-            <EntityTypeMapping TypeName="Pogress_gymModel.tbl_Conceptos">
-              <MappingFragment StoreEntitySet="tbl_Conceptos">
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Id_Concepto" ColumnName="Id_Concepto" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tbl_Ventas">
             <EntityTypeMapping TypeName="Pogress_gymModel.tbl_Ventas">
               <MappingFragment StoreEntitySet="tbl_Ventas">
@@ -310,6 +304,15 @@
                 <ScalarProperty Name="Valor_Venta" ColumnName="Valor_Venta" />
                 <ScalarProperty Name="Id_Plan" ColumnName="Id_Plan" />
                 <ScalarProperty Name="Id_Ventas_Cliente" ColumnName="Id_Ventas_Cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Conceptos">
+            <EntityTypeMapping TypeName="Pogress_gymModel.tbl_Conceptos">
+              <MappingFragment StoreEntitySet="tbl_Conceptos">
+                <ScalarProperty Name="valor_concepto" ColumnName="valor_concepto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id_Concepto" ColumnName="Id_Concepto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

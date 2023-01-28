@@ -29,5 +29,42 @@ namespace Prueba.Bussines.Implementacion.Conceptos
             }
         }
 
+        public bool GuardarConcepto(Conceptos_Dto concepto)
+        {
+            try
+            {
+                return _IConceptos_Data.GuardarConcepto(concepto);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool EditarConcepto(Conceptos_Dto concepto)
+        {
+            try
+            {
+                return _IConceptos_Data.EditarConcepto(concepto);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool EliminarConcepto(int idConcepto)
+        {
+            try
+            {
+                return _IConceptos_Data.EliminarConcepto(idConcepto);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
     }
 }

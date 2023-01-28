@@ -1,5 +1,6 @@
 ﻿using Prueba.Bussines.Interfaz.Planes;
 using Prueba.Entities.Dtos.Generales;
+using Prueba.Entities.Dtos.Planes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,52 @@ namespace Prueba_Api.Controllers.Planes
         public PlanesController()
         {
             
+        }
+
+        [HttpPost]
+        [Route("GuardarPlan")]
+        public HttpResponseMessage GuardarPlan(Planes_Dto plan)
+        {
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, this._IPlanes_Bussines.GuardarPlan(plan));
+
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        [HttpPost]
+        [Route("EditarPlan")]
+        public HttpResponseMessage EditarPlan(Planes_Dto plan)
+        {
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, this._IPlanes_Bussines.EditarPlan(plan));
+
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+
+        [HttpGet]
+        [Route("EliminarPlan")]
+        public HttpResponseMessage EliminarPlan(int idPlan)
+        {
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, this._IPlanes_Bussines.EliminarPlan(idPlan));
+
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
         [HttpGet]

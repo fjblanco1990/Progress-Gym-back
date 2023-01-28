@@ -11,6 +11,11 @@ namespace Prueba.Bussines.Interfaz.Planes
 {
     public interface IPlanes_Bussines
     {
+        bool GuardarPlan(Planes_Dto plan);
+        bool EditarPlan(Planes_Dto plan);
+
+        bool EliminarPlan(int idPlan);
+
         List<Planes_Dto> GetPlanes();
 
         List<Informes_Dto> GetVentasDiarias(DateTime dateInitial, DateTime dateFinish);

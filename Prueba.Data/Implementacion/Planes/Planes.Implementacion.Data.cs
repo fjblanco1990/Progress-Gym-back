@@ -16,6 +16,33 @@ namespace Prueba.Data.Implementacion.Planes
     {
         private Pogress_gymEntities _Pogress_gymEntities = new Pogress_gymEntities();
 
+        public bool GuardarPlan(Planes_Dto plan)
+        {
+            var resultMap = Mapper.Map<tbl_Plan>(plan);
+            _Pogress_gymEntities.tbl_Plan.Add(resultMap);
+            _Pogress_gymEntities.SaveChanges();
+            return true;
+        }
+
+        public bool EditarPlan(Planes_Dto plan)
+        {
+            var resultPlan = _Pogress_gymEntities.tbl_Plan.Where(c => c.Id_Plan == plan.Id_Plan).FirstOrDefault();
+
+            resultPlan.Cantidad_Dias = plan.Cantidad_Dias;
+            resultPlan.Descripcion = plan.Descripcion;
+            resultPlan.Valor_Plan = plan.Valor_Plan;
+
+            _Pogress_gymEntities.SaveChanges();
+            return true;
+        }
+
+        public bool EliminarPlan(int idPlan)
+        {
+            var resultPlan = _Pogress_gymEntities.tbl_Plan.Where(c => c.Id_Plan == idPlan).FirstOrDefault();
+            _Pogress_gymEntities.tbl_Plan.Remove(resultPlan);
+            return true;
+        }
+
         public List<Planes_Dto> GetPlanes()
         {
             var resultPlanes = _Pogress_gymEntities.tbl_Plan.ToList();
@@ -50,7 +77,6 @@ namespace Prueba.Data.Implementacion.Planes
 
             return Mapper.Map<List<Ingresos_Completo_Dto>>(result);
         }
-
 
         public Informes_General_Dto GetInformeDiarioGeneral(DateTime dateInitial, DateTime dateFinish)
         {

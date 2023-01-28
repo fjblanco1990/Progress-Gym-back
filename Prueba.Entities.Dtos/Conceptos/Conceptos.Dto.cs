@@ -10,5 +10,6 @@ namespace Prueba.Entities.Dtos.Conceptos
     {
         public int Id_Concepto { get; set; }
         public string Descripcion { get; set; }
+        public int valor_concepto { get; set; }
     }
 }
