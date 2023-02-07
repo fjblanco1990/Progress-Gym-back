@@ -26,6 +26,7 @@ namespace Prueba.Entities.Dtos.Clientes
         public System.DateTime Fecha_fin { get; set; }
         public bool Reingreso { get; set; }
         public System.DateTime Fecha_Actualizacion { get; set; }
+        public string Hora_Registro { get; set; }
     }
 
     public class Clientes_completo_Dto

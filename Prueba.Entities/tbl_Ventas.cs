@@ -19,5 +19,6 @@ namespace Prueba.Entities
         public System.DateTime Fecha_Ingreso { get; set; }
         public int Id_Concepto { get; set; }
         public int Valor_Venta { get; set; }
+        public string Hora_Venta { get; set; }
     }
 }

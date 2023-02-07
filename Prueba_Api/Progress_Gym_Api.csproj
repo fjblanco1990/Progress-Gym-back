@@ -191,6 +191,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Ingresos\IngresosController.cs" />
     <Compile Include="Controllers\Planes\PlanesController.cs" />
+    <Compile Include="Controllers\Usuarios\UsuariosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\Ventas\VentasController.cs" />
     <Compile Include="Global.asax.cs">
@@ -251,7 +252,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Usuarios\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

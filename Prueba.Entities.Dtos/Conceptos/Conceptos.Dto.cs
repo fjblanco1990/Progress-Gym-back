@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Prueba.Entities.Dtos.Conceptos
 {
-    public class Conceptos_Dto
+    public class Concepto_Dto
     {
         public int Id_Concepto { get; set; }
         public string Descripcion { get; set; }

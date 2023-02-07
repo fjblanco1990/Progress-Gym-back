@@ -53,7 +53,7 @@
           <Property Name="Id_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombres" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Apellidos" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Fecha_nacimiento" Type="date" Nullable="false" />
+          <Property Name="Fecha_nacimiento" Type="date" />
           <Property Name="Documento_identitdad" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Celular" Type="nvarchar" MaxLength="15" />
           <Property Name="Id_Plan" Type="int" Nullable="false" />
@@ -64,6 +64,7 @@
           <Property Name="Fecha_inicio" Type="date" Nullable="false" />
           <Property Name="Fecha_fin" Type="date" Nullable="false" />
           <Property Name="Fecha_Actualizacion" Type="date" Nullable="false" />
+          <Property Name="Hora_Registro" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="tbl_pro_Usuarios">
           <Key>
@@ -85,6 +86,7 @@
           <Property Name="Fecha_Ingreso" Type="date" Nullable="false" />
           <Property Name="Id_Concepto" Type="int" Nullable="false" />
           <Property Name="Valor_Venta" Type="int" Nullable="false" />
+          <Property Name="Hora_Venta" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="tbl_ventas_clientes">
           <Key>
@@ -94,6 +96,8 @@
           <Property Name="Id_Plan" Type="int" Nullable="false" />
           <Property Name="Valor_Venta" Type="int" Nullable="false" />
           <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Hora_Venta_Cliente" Type="varchar" MaxLength="20" />
+          <Property Name="Id_Cliente" Type="int" />
         </EntityType>
         <EntityContainer Name="Pogress_gymModelStoreContainer">
           <EntitySet Name="tbl_Conceptos" EntityType="Self.tbl_Conceptos" Schema="dbo" store:Type="Tables" />
@@ -141,7 +145,7 @@
           <Property Name="Id_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Fecha_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Fecha_nacimiento" Type="DateTime" Precision="0" />
           <Property Name="Documento_identitdad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Celular" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Id_Plan" Type="Int32" Nullable="false" />
@@ -152,6 +156,7 @@
           <Property Name="Fecha_inicio" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Fecha_fin" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Fecha_Actualizacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Hora_Registro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbl_pro_Usuarios">
           <Key>
@@ -193,6 +198,7 @@
           <Property Name="Fecha_Ingreso" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Id_Concepto" Type="Int32" Nullable="false" />
           <Property Name="Valor_Venta" Type="Int32" Nullable="false" />
+          <Property Name="Hora_Venta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbl_ventas_clientes">
           <Key>
@@ -202,6 +208,8 @@
           <Property Name="Id_Plan" Type="Int32" Nullable="false" />
           <Property Name="Valor_Venta" Type="Int32" Nullable="false" />
           <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Hora_Venta_Cliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Cliente" Type="Int32" />
         </EntityType>
         <EntityType Name="tbl_Conceptos">
           <Key>
@@ -247,6 +255,7 @@
           <EntitySetMapping Name="tbl_pro_Clientes">
             <EntityTypeMapping TypeName="Pogress_gymModel.tbl_pro_Clientes">
               <MappingFragment StoreEntitySet="tbl_pro_Clientes">
+                <ScalarProperty Name="Hora_Registro" ColumnName="Hora_Registro" />
                 <ScalarProperty Name="Fecha_Actualizacion" ColumnName="Fecha_Actualizacion" />
                 <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
                 <ScalarProperty Name="Nombres" ColumnName="Nombres" />
@@ -289,6 +298,7 @@
           <EntitySetMapping Name="tbl_Ventas">
             <EntityTypeMapping TypeName="Pogress_gymModel.tbl_Ventas">
               <MappingFragment StoreEntitySet="tbl_Ventas">
+                <ScalarProperty Name="Hora_Venta" ColumnName="Hora_Venta" />
                 <ScalarProperty Name="Valor_Venta" ColumnName="Valor_Venta" />
                 <ScalarProperty Name="Id_Concepto" ColumnName="Id_Concepto" />
                 <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
@@ -300,6 +310,8 @@
           <EntitySetMapping Name="tbl_ventas_clientes">
             <EntityTypeMapping TypeName="Pogress_gymModel.tbl_ventas_clientes">
               <MappingFragment StoreEntitySet="tbl_ventas_clientes">
+                <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
+                <ScalarProperty Name="Hora_Venta_Cliente" ColumnName="Hora_Venta_Cliente" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="Valor_Venta" ColumnName="Valor_Venta" />
                 <ScalarProperty Name="Id_Plan" ColumnName="Id_Plan" />

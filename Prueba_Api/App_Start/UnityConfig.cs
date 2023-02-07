@@ -3,24 +3,28 @@ using Prueba.Bussines.Implementacion.Conceptos;
 using Prueba.Bussines.Implementacion.Formas_Pago;
 using Prueba.Bussines.Implementacion.Ingresos;
 using Prueba.Bussines.Implementacion.Planes;
+using Prueba.Bussines.Implementacion.Usuarios;
 using Prueba.Bussines.Implementacion.Ventas;
 using Prueba.Bussines.Interfaz.Clientes;
 using Prueba.Bussines.Interfaz.Conceptos;
 using Prueba.Bussines.Interfaz.Formas_pago;
 using Prueba.Bussines.Interfaz.Ingresos;
 using Prueba.Bussines.Interfaz.Planes;
+using Prueba.Bussines.Interfaz.Usuarios;
 using Prueba.Bussines.Interfaz.Ventas;
 using Prueba.Data.Implementacion.Clientes;
 using Prueba.Data.Implementacion.Conceptos;
 using Prueba.Data.Implementacion.Formas_Pago;
 using Prueba.Data.Implementacion.Ingresos;
 using Prueba.Data.Implementacion.Planes;
+using Prueba.Data.Implementacion.Usuarios;
 using Prueba.Data.Implementacion.Ventas;
 using Prueba.Data.Interfaz.Clientes;
 using Prueba.Data.Interfaz.Conceptos;
 using Prueba.Data.Interfaz.Formas_pago;
 using Prueba.Data.Interfaz.Ingresos;
 using Prueba.Data.Interfaz.Planes;
+using Prueba.Data.Interfaz.Usuarios;
 using Prueba.Data.Interfaz.Ventas;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -53,11 +57,8 @@ namespace Prueba_Api
             container.RegisterType<IVentas_Bussines, Ventas_Bussines>();
             container.RegisterType<IVentas_Data, Ventas_Data>();
 
-            //container.RegisterType<IAvionInterfazData, AvionImplementacionData>();
-            //container.RegisterType<IAvionInterfazBussines, AvionImplementacionBussines>();
-
-            //container.RegisterType<IIntinerarioInterfazData, IntinerarioImplementacionData>();
-            //container.RegisterType<IIntinerarioInterfazBussines, IntinerarioImplementacionBussines>();
+            container.RegisterType<IUsuarios_Bussines, Usuarios_Bussines>();
+            container.RegisterType<IUsuarios_Data, Usuarios_Data>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);

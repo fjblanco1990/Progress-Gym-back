@@ -40,6 +40,7 @@ namespace Prueba.Data.Implementacion.Planes
         {
             var resultPlan = _Pogress_gymEntities.tbl_Plan.Where(c => c.Id_Plan == idPlan).FirstOrDefault();
             _Pogress_gymEntities.tbl_Plan.Remove(resultPlan);
+            _Pogress_gymEntities.SaveChanges();
             return true;
         }
 
@@ -51,14 +52,15 @@ namespace Prueba.Data.Implementacion.Planes
 
         public List<Informes_Dto> GetVentasDiarias(DateTime dateInitial, DateTime dateFinish)
         {
-            var result = (from c in _Pogress_gymEntities.tbl_pro_Clientes
-                          join p in _Pogress_gymEntities.tbl_Plan on c.Id_Plan  equals p.Id_Plan
-                          join v in _Pogress_gymEntities.tbl_ventas_clientes on p.Id_Plan equals v.Id_Plan
+            
+
+            var result = (from v in _Pogress_gymEntities.tbl_ventas_clientes  
+                          join p in _Pogress_gymEntities.tbl_Plan on v.Id_Plan equals p.Id_Plan
                           where v.Fecha >= dateInitial && v.Fecha <= dateFinish
                           select new
                           {
-                              cliente = c,
                               planes = p,
+                               
                           }).ToList();
 
             return Mapper.Map<List<Informes_Dto>>(result);
@@ -86,12 +88,8 @@ namespace Prueba.Data.Implementacion.Planes
 
             informeGeneral.Total_Ventas = (from c in _Pogress_gymEntities.tbl_pro_Clientes
                                            join p in _Pogress_gymEntities.tbl_Plan on c.Id_Plan equals p.Id_Plan
-                                           join v in _Pogress_gymEntities.tbl_ventas_clientes on p.Id_Plan equals v.Id_Plan
-                                           where v.Fecha >= dateInitial && v.Fecha <= dateFinish
-                                           select new { p.Valor_Plan }).ToList().Select(vp => vp.Valor_Plan).Sum();
-
-            informeGeneral.Cantidad_Ingresos = _Pogress_gymEntities.tbl_IngresosXCliente.Where(c => c.Fecha_Ingreso >= dateInitial && c.Fecha_Ingreso <= dateFinish).Count();
-           
+                                           where c.Fecha_registro >= dateInitial && c.Fecha_registro <= dateFinish
+                                           select new { p.Valor_Plan }).ToList().Select(p => p.Valor_Plan).Sum();
             informeGeneral.Mensual = GetPlanes(dateInitial, dateFinish, informeGeneral, 1);
             informeGeneral.Tiquetera = GetPlanes(dateInitial, dateFinish, informeGeneral, 2);
             informeGeneral.Bimestral = GetPlanes(dateInitial, dateFinish, informeGeneral, 3);

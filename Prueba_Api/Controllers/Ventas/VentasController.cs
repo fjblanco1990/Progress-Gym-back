@@ -50,6 +50,19 @@ namespace Prueba_Api.Controllers.Ventas
                 return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
             }
         }
+        [HttpPost]
+        [Route("GetVentasPlanesDiarios")]
+        public HttpResponseMessage GetVentasPlanesDiarios(Dates dates)
+        {
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, _IVentas_Bussines.GetVentasPlanesDiarios(dates.Fecha_Inicial, dates.Fecha_Final));
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
 
 
         [HttpPost]

@@ -17,7 +17,7 @@ namespace Prueba.Bussines.Implementacion.Conceptos
             _IConceptos_Data = iConceptos_Data;
         }
 
-        public List<Conceptos_Dto> getConceptos()
+        public List<Concepto_Dto> getConceptos()
         {
             try
             {
@@ -29,7 +29,7 @@ namespace Prueba.Bussines.Implementacion.Conceptos
             }
         }
 
-        public bool GuardarConcepto(Conceptos_Dto concepto)
+        public bool GuardarConcepto(Concepto_Dto concepto)
         {
             try
             {
@@ -41,7 +41,7 @@ namespace Prueba.Bussines.Implementacion.Conceptos
             }
         }
 
-        public bool EditarConcepto(Conceptos_Dto concepto)
+        public bool EditarConcepto(Concepto_Dto concepto)
         {
             try
             {

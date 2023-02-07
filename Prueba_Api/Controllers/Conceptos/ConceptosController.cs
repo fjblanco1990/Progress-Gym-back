@@ -38,7 +38,7 @@ namespace Prueba_Api.Controllers.Conceptos
 
         [HttpPost]
         [Route("GuardarConcepto")]
-        public HttpResponseMessage GuardarConcepto(Conceptos_Dto concepto)
+        public HttpResponseMessage GuardarConcepto(Concepto_Dto concepto)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace Prueba_Api.Controllers.Conceptos
 
         [HttpPost]
         [Route("EditarConcepto")]
-        public HttpResponseMessage EditarConcepto(Conceptos_Dto concepto)
+        public HttpResponseMessage EditarConcepto(Concepto_Dto concepto)
         {
             try
             {

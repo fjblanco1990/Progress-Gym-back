@@ -40,6 +40,25 @@ namespace Prueba.Data.Implementacion.Ventas
             return Mapper.Map<List<Ventas_Completas_Dto>>(result);
         }
 
+        public List<Ventas_Palnes_Completas_Dto> GetVentasPlanesDiarios(DateTime dateInitial, DateTime dateFinish)
+        {
+            var result = (from v in _Progress_gymEntities.tbl_ventas_clientes
+                          join c in _Progress_gymEntities.tbl_pro_Clientes on v.Id_Cliente equals c.Id_Cliente
+                          join u in _Progress_gymEntities.tbl_pro_Usuarios on c.Id_Usuario equals u.Id_Usuario
+                          join p in _Progress_gymEntities.tbl_Plan on c.Id_Plan equals p.Id_Plan
+                          where v.Fecha >= dateInitial && v.Fecha <= dateFinish
+                          select new
+                          {
+                              cliente = c,
+                              ventasClientes = v,
+                              plan = p,
+                              usuario = u
+
+                          }).ToList();
+
+            return Mapper.Map<List<Ventas_Palnes_Completas_Dto>>(result);
+        }
+
         public List<Ventas_Dto> GetVentasAll()
         {
             var response = _Progress_gymEntities.tbl_Ventas.ToList();

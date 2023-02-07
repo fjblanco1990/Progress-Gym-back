@@ -12,7 +12,9 @@ namespace Prueba.Entities.Dtos.Ventas
         public int Id_Ventas_Cliente { get; set; }
         public int Id_Plan { get; set; }
         public int Valor_Venta { get; set; }
-        public DateTime Fecha { get; set; }         
+        public DateTime Fecha { get; set; }
+        public string Hora_Venta_Cliente { get; set; }
+        public int Id_Cliente { get; set; }
     }
 
     public class VentasClientesCompleto

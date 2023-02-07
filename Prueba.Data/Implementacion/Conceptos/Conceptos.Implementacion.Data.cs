@@ -14,13 +14,13 @@ namespace Prueba.Data.Implementacion.Conceptos
     {
         private Pogress_gymEntities _Pogress_gymEntities = new Pogress_gymEntities();
 
-        public List<Conceptos_Dto> getConceptos()
+        public List<Concepto_Dto> getConceptos()
         {
             var resultFormas = _Pogress_gymEntities.tbl_Conceptos.ToList();
-            return Mapper.Map<List<Conceptos_Dto>>(resultFormas);
+            return Mapper.Map<List<Concepto_Dto>>(resultFormas);
         }
 
-        public bool GuardarConcepto( Conceptos_Dto concepto)
+        public bool GuardarConcepto( Concepto_Dto concepto)
         {
             var resultMap = Mapper.Map<tbl_Conceptos>(concepto);
             _Pogress_gymEntities.tbl_Conceptos.Add(resultMap);
@@ -28,7 +28,7 @@ namespace Prueba.Data.Implementacion.Conceptos
             return true;
         }
 
-        public bool EditarConcepto(Conceptos_Dto concepto)
+        public bool EditarConcepto(Concepto_Dto concepto)
         {
             var resultConcepto = _Pogress_gymEntities.tbl_Conceptos.Where(c => c.Id_Concepto == concepto.Id_Concepto).FirstOrDefault();
 
@@ -43,6 +43,7 @@ namespace Prueba.Data.Implementacion.Conceptos
         {
             var resultConcepto = _Pogress_gymEntities.tbl_Conceptos.Where(c => c.Id_Concepto == idConcepto).FirstOrDefault();
             _Pogress_gymEntities.tbl_Conceptos.Remove(resultConcepto);
+            _Pogress_gymEntities.SaveChanges();
             return true;
         }
     }

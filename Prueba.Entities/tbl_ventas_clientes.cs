@@ -18,5 +18,7 @@ namespace Prueba.Entities
         public int Id_Plan { get; set; }
         public int Valor_Venta { get; set; }
         public System.DateTime Fecha { get; set; }
+        public string Hora_Venta_Cliente { get; set; }
+        public Nullable<int> Id_Cliente { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace Prueba.Entities
         public int Id_Cliente { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
-        public System.DateTime Fecha_nacimiento { get; set; }
+        public Nullable<System.DateTime> Fecha_nacimiento { get; set; }
         public string Documento_identitdad { get; set; }
         public string Celular { get; set; }
         public int Id_Plan { get; set; }
@@ -28,5 +28,6 @@ namespace Prueba.Entities
         public System.DateTime Fecha_inicio { get; set; }
         public System.DateTime Fecha_fin { get; set; }
         public System.DateTime Fecha_Actualizacion { get; set; }
+        public string Hora_Registro { get; set; }
     }
 }

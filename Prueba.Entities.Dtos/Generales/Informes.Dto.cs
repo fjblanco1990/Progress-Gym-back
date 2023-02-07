@@ -22,7 +22,6 @@ namespace Prueba.Entities.Dtos.Generales
 
     public class Informes_Dto
     {
-        public Clientes_Dto cliente { get; set; }
         public Planes_Dto   planes { get; set; }
     }
 

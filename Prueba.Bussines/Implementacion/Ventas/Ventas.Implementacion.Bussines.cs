@@ -42,6 +42,19 @@ namespace Prueba.Bussines.Implementacion.Ventas
             }
         }
 
+        public List<Ventas_Palnes_Completas_Dto> GetVentasPlanesDiarios(DateTime dateInitial, DateTime dateFinish)
+        {
+            try
+            {
+                return _IVentas_Data.GetVentasPlanesDiarios(dateInitial, dateFinish);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public List<Ventas_Dto> GetVentasAll()
         {
             try

@@ -27,6 +27,8 @@ namespace Prueba.Data.Implementacion.Clientes
             ventas_Dto.Id_Plan = clientes_Dto.Id_Plan;
             ventas_Dto.Valor_Venta = _Pogress_gymEntities.tbl_Plan.Where(c => c.Id_Plan == clientes_Dto.Id_Plan).FirstOrDefault().Valor_Plan;
             ventas_Dto.Fecha = clientes_Dto.Fecha_registro;
+            ventas_Dto.Hora_Venta_Cliente = clientes_Dto.Hora_Registro;
+            ventas_Dto.Id_Cliente = _Pogress_gymEntities.tbl_pro_Clientes.Where(cl => cl.Documento_identitdad.Equals(clientes_Dto.Documento_identitdad)).FirstOrDefault().Id_Cliente;
 
             var mapperVentas = Mapper.Map<tbl_ventas_clientes>(ventas_Dto);
             _Pogress_gymEntities.tbl_ventas_clientes.Add(mapperVentas);
