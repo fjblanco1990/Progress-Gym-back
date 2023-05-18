@@ -34,5 +34,7 @@ namespace Prueba.Entities
         public virtual DbSet<tbl_Ventas> tbl_Ventas { get; set; }
         public virtual DbSet<tbl_ventas_clientes> tbl_ventas_clientes { get; set; }
         public virtual DbSet<tbl_Conceptos> tbl_Conceptos { get; set; }
+        public virtual DbSet<tbl_DeudasXCliente> tbl_DeudasXCliente { get; set; }
+        public virtual DbSet<tbl_LogRegistroClientes> tbl_LogRegistroClientes { get; set; }
     }
 }

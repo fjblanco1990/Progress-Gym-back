@@ -12,14 +12,12 @@ namespace Prueba.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_Ventas
+    public partial class tbl_LogRegistroClientes
     {
-        public int Id_Venta { get; set; }
+        public int Id_LogRegistro { get; set; }
         public int Id_Usuario { get; set; }
-        public System.DateTime Fecha_Ingreso { get; set; }
-        public int Id_Concepto { get; set; }
-        public int Valor_Venta { get; set; }
-        public string Hora_Venta { get; set; }
-        public Nullable<int> Id_Forma_pago { get; set; }
+        public System.DateTime Fecha_registro { get; set; }
+        public string Accion { get; set; }
+        public string info_data { get; set; }
     }
 }

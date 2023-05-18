@@ -69,10 +69,16 @@
     <Compile Include="tbl_Conceptos.cs">
       <DependentUpon>ModelProgressGym.tt</DependentUpon>
     </Compile>
+    <Compile Include="tbl_DeudasXCliente.cs">
+      <DependentUpon>ModelProgressGym.tt</DependentUpon>
+    </Compile>
     <Compile Include="tbl_Forma_Pago.cs">
       <DependentUpon>ModelProgressGym.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_IngresosXCliente.cs">
+      <DependentUpon>ModelProgressGym.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_LogRegistroClientes.cs">
       <DependentUpon>ModelProgressGym.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_LOG_IngresosXCliente.cs">

@@ -1,5 +1,6 @@
 ﻿using Prueba.Entities.Dtos.Clientes;
 using Prueba.Entities.Dtos.Conceptos;
+using Prueba.Entities.Dtos.Fromas_Pago;
 using Prueba.Entities.Dtos.Planes;
 using Prueba.Entities.Dtos.Usuarios;
 using System;
@@ -18,6 +19,7 @@ namespace Prueba.Entities.Dtos.Ventas
         public int Id_Concepto { get; set; }
         public int Valor_Venta { get; set; }
         public string Hora_Venta { get; set; }
+        public int Id_Forma_pago { get; set; }
 
     }
 
@@ -25,8 +27,9 @@ namespace Prueba.Entities.Dtos.Ventas
     {
         public Ventas_Dto venta { get; set; }
         public Usuarios_Dto usuario { get; set; }
-        public Concepto_Dto concepto  { get; set; }
- 
+        public Concepto_Dto concepto { get; set; }
+        public Formas_pago_Dto formas { get; set; }
+
     }
 
     public class Ventas_Palnes_Completas_Dto
@@ -36,5 +39,11 @@ namespace Prueba.Entities.Dtos.Ventas
         public Planes_Dto plan { get; set; }
         public Usuarios_Dto usuario { get; set; }
 
+    }
+
+    public class Ventas_usuarios_Cierre
+    {
+        public List<Ventas_Completas_Dto> venta_completa { get; set; }
+        public List<Ventas_Clientes_Completo_Dto> ventas_planes_usuarios { get; set; }
     }
 }

@@ -13,6 +13,18 @@
           <Property Name="Descripcion" Type="nvarchar(max)" />
           <Property Name="valor_concepto" Type="int" />
         </EntityType>
+        <EntityType Name="tbl_DeudasXCliente">
+          <Key>
+            <PropertyRef Name="Id_Deuda" />
+          </Key>
+          <Property Name="Id_Deuda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Usuario" Type="int" Nullable="false" />
+          <Property Name="Id_Cliente" Type="int" Nullable="false" />
+          <Property Name="Fecha_deuda" Type="date" Nullable="false" />
+          <Property Name="Hora_deuda" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" />
+          <Property Name="Valor_deuda" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="tbl_Forma_Pago">
           <Key>
             <PropertyRef Name="Id_Forma_Pago" />
@@ -36,6 +48,16 @@
           <Property Name="Id_Cliente" Type="int" Nullable="false" />
           <Property Name="Fecha_Ingreso" Type="date" Nullable="false" />
           <Property Name="Hora_Ingreso" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tbl_LogRegistroClientes">
+          <Key>
+            <PropertyRef Name="Id_LogRegistro" />
+          </Key>
+          <Property Name="Id_LogRegistro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Usuario" Type="int" Nullable="false" />
+          <Property Name="Fecha_registro" Type="date" Nullable="false" />
+          <Property Name="Accion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="info_data" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_Plan">
           <Key>
@@ -87,6 +109,7 @@
           <Property Name="Id_Concepto" Type="int" Nullable="false" />
           <Property Name="Valor_Venta" Type="int" Nullable="false" />
           <Property Name="Hora_Venta" Type="varchar" MaxLength="20" />
+          <Property Name="Id_Forma_pago" Type="int" />
         </EntityType>
         <EntityType Name="tbl_ventas_clientes">
           <Key>
@@ -101,9 +124,11 @@
         </EntityType>
         <EntityContainer Name="Pogress_gymModelStoreContainer">
           <EntitySet Name="tbl_Conceptos" EntityType="Self.tbl_Conceptos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_DeudasXCliente" EntityType="Self.tbl_DeudasXCliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Forma_Pago" EntityType="Self.tbl_Forma_Pago" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_IngresosXCliente" EntityType="Self.tbl_IngresosXCliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_LOG_IngresosXCliente" EntityType="Self.tbl_LOG_IngresosXCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_LogRegistroClientes" EntityType="Self.tbl_LogRegistroClientes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Plan" EntityType="Self.tbl_Plan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_pro_Clientes" EntityType="Self.tbl_pro_Clientes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_pro_Usuarios" EntityType="Self.tbl_pro_Usuarios" Schema="dbo" store:Type="Tables" />
@@ -179,6 +204,8 @@
           <EntitySet Name="tbl_Ventas" EntityType="Pogress_gymModel.tbl_Ventas" />
           <EntitySet Name="tbl_ventas_clientes" EntityType="Pogress_gymModel.tbl_ventas_clientes" />
           <EntitySet Name="tbl_Conceptos" EntityType="Pogress_gymModel.tbl_Conceptos" />
+          <EntitySet Name="tbl_DeudasXCliente" EntityType="Pogress_gymModel.tbl_DeudasXCliente" />
+          <EntitySet Name="tbl_LogRegistroClientes" EntityType="Pogress_gymModel.tbl_LogRegistroClientes" />
         </EntityContainer>
         <EntityType Name="tbl_LOG_IngresosXCliente">
           <Key>
@@ -199,6 +226,7 @@
           <Property Name="Id_Concepto" Type="Int32" Nullable="false" />
           <Property Name="Valor_Venta" Type="Int32" Nullable="false" />
           <Property Name="Hora_Venta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Forma_pago" Type="Int32" />
         </EntityType>
         <EntityType Name="tbl_ventas_clientes">
           <Key>
@@ -218,6 +246,28 @@
           <Property Name="Id_Concepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="valor_concepto" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_DeudasXCliente">
+          <Key>
+            <PropertyRef Name="Id_Deuda" />
+          </Key>
+          <Property Name="Id_Deuda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Id_Cliente" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_deuda" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Hora_deuda" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Valor_deuda" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_LogRegistroClientes">
+          <Key>
+            <PropertyRef Name="Id_LogRegistro" />
+          </Key>
+          <Property Name="Id_LogRegistro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_registro" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Accion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="info_data" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -298,6 +348,7 @@
           <EntitySetMapping Name="tbl_Ventas">
             <EntityTypeMapping TypeName="Pogress_gymModel.tbl_Ventas">
               <MappingFragment StoreEntitySet="tbl_Ventas">
+                <ScalarProperty Name="Id_Forma_pago" ColumnName="Id_Forma_pago" />
                 <ScalarProperty Name="Hora_Venta" ColumnName="Hora_Venta" />
                 <ScalarProperty Name="Valor_Venta" ColumnName="Valor_Venta" />
                 <ScalarProperty Name="Id_Concepto" ColumnName="Id_Concepto" />
@@ -325,6 +376,30 @@
                 <ScalarProperty Name="valor_concepto" ColumnName="valor_concepto" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Id_Concepto" ColumnName="Id_Concepto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_DeudasXCliente">
+            <EntityTypeMapping TypeName="Pogress_gymModel.tbl_DeudasXCliente">
+              <MappingFragment StoreEntitySet="tbl_DeudasXCliente">
+                <ScalarProperty Name="Valor_deuda" ColumnName="Valor_deuda" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="Hora_deuda" ColumnName="Hora_deuda" />
+                <ScalarProperty Name="Fecha_deuda" ColumnName="Fecha_deuda" />
+                <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Id_Deuda" ColumnName="Id_Deuda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_LogRegistroClientes">
+            <EntityTypeMapping TypeName="Pogress_gymModel.tbl_LogRegistroClientes">
+              <MappingFragment StoreEntitySet="tbl_LogRegistroClientes">
+                <ScalarProperty Name="info_data" ColumnName="info_data" />
+                <ScalarProperty Name="Accion" ColumnName="Accion" />
+                <ScalarProperty Name="Fecha_registro" ColumnName="Fecha_registro" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Id_LogRegistro" ColumnName="Id_LogRegistro" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

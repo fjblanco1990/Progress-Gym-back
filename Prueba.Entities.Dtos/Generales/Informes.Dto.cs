@@ -31,6 +31,13 @@ namespace Prueba.Entities.Dtos.Generales
         public DateTime Fecha_Final { get; set; }
     }
 
+    public class DatesAndUser
+    {
+        public DateTime Fecha_Inicial { get; set; }
+        public DateTime Fecha_Final { get; set; }
+        public int idUsuario { get; set; }
+    }
+
     //public class Planes_Dto
     //{
     //Id_Plan int not null primary key identity(1,1),

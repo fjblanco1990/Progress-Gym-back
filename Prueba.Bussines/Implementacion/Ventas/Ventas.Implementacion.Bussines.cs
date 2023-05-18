@@ -1,5 +1,6 @@
 ﻿using Prueba.Bussines.Interfaz.Ventas;
 using Prueba.Data.Interfaz.Ventas;
+using Prueba.Entities.Dtos.Generales;
 using Prueba.Entities.Dtos.Ventas;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Prueba.Bussines.Implementacion.Ventas
 {
-    public class Ventas_Bussines: IVentas_Bussines
+    public class Ventas_Bussines : IVentas_Bussines
     {
         private readonly IVentas_Data _IVentas_Data;
 
@@ -34,7 +35,32 @@ namespace Prueba.Bussines.Implementacion.Ventas
         {
             try
             {
-                return _IVentas_Data.GetVentasUnicasDiarias(dateInitial,dateFinish);
+                return _IVentas_Data.GetVentasUnicasDiarias(dateInitial, dateFinish);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public List<Ventas_Completas_Dto> GetAllVentasByUserDiarias(DateTime dateInitial, DateTime dateFinish, int idUsuario)
+        {
+            try
+            {
+                return _IVentas_Data.GetAllVentasByUserDiarias(dateInitial, dateFinish, idUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Ventas_Clientes_Completo_Dto> GetAllVentasByUserPlanes(DateTime dateInitial, DateTime dateFinish, int idUsuario)
+        {
+            try
+            {
+                return _IVentas_Data.GetAllVentasByUserPlanes(dateInitial, dateFinish, idUsuario);
             }
             catch (Exception ex)
             {
@@ -55,6 +81,35 @@ namespace Prueba.Bussines.Implementacion.Ventas
 
         }
 
+
+        public List<Ventas_Completas_Dto> GetVentasIngresosUnicos(Dates dates)
+        {
+            try
+            {
+                return _IVentas_Data.GetVentasIngresosUnicos(dates);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public Ventas_usuarios_Cierre GetReportePorUsuario(DatesAndUser dates)
+        {
+            try
+            {
+                return _IVentas_Data.GetReportePorUsuario(dates);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        
+
+
         public List<Ventas_Dto> GetVentasAll()
         {
             try
@@ -66,5 +121,54 @@ namespace Prueba.Bussines.Implementacion.Ventas
                 throw ex;
             }
         }
+
+        public bool GuardarDeuda(Deuda_Dto deuda_Dto)
+        {
+            try
+            {
+                return _IVentas_Data.GuardarDeuda(deuda_Dto);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool EliminarDeuda(int idDeuda)
+        {
+            try
+            {
+                return _IVentas_Data.EliminarDeuda(idDeuda);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Deuda_Completas_Dto> GetAllDeudas()
+        {
+            try
+            {
+                return _IVentas_Data.GetAllDeudas();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Deuda_Completas_Dto> GetDuedByUser(int idCliente)
+        {
+            try
+            {
+                return _IVentas_Data.GetDuedByUser(idCliente);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

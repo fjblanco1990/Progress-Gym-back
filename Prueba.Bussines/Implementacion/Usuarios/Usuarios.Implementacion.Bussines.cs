@@ -52,6 +52,19 @@ namespace Prueba.Bussines.Implementacion.Usuarios
             }
         }
 
+        public bool GuardarLogUsuario(LogUsuario_Dto logUserDto)
+        {
+            try
+            {
+                return this._IUsuarios_Data.GuardarLogUsuario(logUserDto);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         public bool EliminarUsuario(int idUsuario)
         {
             try

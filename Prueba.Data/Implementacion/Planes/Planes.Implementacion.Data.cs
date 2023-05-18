@@ -4,6 +4,7 @@ using Prueba.Entities;
 using Prueba.Entities.Dtos.Generales;
 using Prueba.Entities.Dtos.Ingresos;
 using Prueba.Entities.Dtos.Planes;
+using Prueba.Entities.Dtos.Ventas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,10 +87,9 @@ namespace Prueba.Data.Implementacion.Planes
 
             informeGeneral.Cantidad_Ingresos = _Pogress_gymEntities.tbl_IngresosXCliente.Where(c => c.Fecha_Ingreso >= dateInitial && c.Fecha_Ingreso <= dateFinish).Count();
 
-            informeGeneral.Total_Ventas = (from c in _Pogress_gymEntities.tbl_pro_Clientes
-                                           join p in _Pogress_gymEntities.tbl_Plan on c.Id_Plan equals p.Id_Plan
-                                           where c.Fecha_registro >= dateInitial && c.Fecha_registro <= dateFinish
-                                           select new { p.Valor_Plan }).ToList().Select(p => p.Valor_Plan).Sum();
+            informeGeneral.Total_Ventas = (from v in _Pogress_gymEntities.tbl_ventas_clientes
+                                           where v.Fecha >= dateInitial && v.Fecha <= dateFinish
+                                           select new { v.Valor_Venta }).ToList().Select(p => p.Valor_Venta).Sum();
             informeGeneral.Mensual = GetPlanes(dateInitial, dateFinish, informeGeneral, 1);
             informeGeneral.Tiquetera = GetPlanes(dateInitial, dateFinish, informeGeneral, 2);
             informeGeneral.Bimestral = GetPlanes(dateInitial, dateFinish, informeGeneral, 3);
@@ -100,6 +100,8 @@ namespace Prueba.Data.Implementacion.Planes
   
             return Mapper.Map<Informes_General_Dto>(informeGeneral);
         }
+
+       
 
         private int GetPlanes(DateTime dateInitial, DateTime dateFinish, Informes_General_Dto informeGeneral, int idPlan)
         {

@@ -77,9 +77,14 @@ namespace Prueba.Data.Implementacion.Clientes
             tblClientes.Id_Plan = clientes_Dto.Id_Plan;
             tblClientes.Id_Forma_pago = clientes_Dto.Id_Forma_pago;
             tblClientes.Estado = clientes_Dto.Estado;
+            if (tblClientes.Fecha_inicio != clientes_Dto.Fecha_inicio)
+            {
+                tblClientes.Fecha_Actualizacion = clientes_Dto.Fecha_Actualizacion;
+            }
             tblClientes.Fecha_inicio = clientes_Dto.Fecha_inicio;
             tblClientes.Fecha_fin = clientes_Dto.Fecha_fin;
-            tblClientes.Fecha_Actualizacion = clientes_Dto.Fecha_Actualizacion;
+            
+            tblClientes.Documento_identitdad = clientes_Dto.Documento_identitdad;
             _Pogress_gymEntities.SaveChanges();
 
             //aqui si el estado es es activo de nuevo elimina los registros de ingreso, pero se  valida si es para un reingreso o edicion normal 
@@ -90,6 +95,8 @@ namespace Prueba.Data.Implementacion.Clientes
                 ventas_Dto.Id_Plan = clientes_Dto.Id_Plan;
                 ventas_Dto.Valor_Venta = _Pogress_gymEntities.tbl_Plan.Where(c => c.Id_Plan == clientes_Dto.Id_Plan).FirstOrDefault().Valor_Plan;
                 ventas_Dto.Fecha = clientes_Dto.Fecha_Actualizacion;
+                ventas_Dto.Hora_Venta_Cliente = DateTime.Now.ToShortTimeString();
+                ventas_Dto.Id_Cliente = clientes_Dto.Id_Cliente;
 
                 var mapperVentas = Mapper.Map<tbl_ventas_clientes>(ventas_Dto);
                 _Pogress_gymEntities.tbl_ventas_clientes.Add(mapperVentas);

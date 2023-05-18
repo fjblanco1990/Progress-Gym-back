@@ -1,5 +1,6 @@
 ﻿using Prueba.Entities.Dtos.Clientes;
 using Prueba.Entities.Dtos.Planes;
+using Prueba.Entities.Dtos.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +23,13 @@ namespace Prueba.Entities.Dtos.Ventas
         public VentasClientes_Dto Ventas_Cliente { get; set; }
         public Clientes_Dto Cliente { get; set; }
         public Planes_Dto Id_Plan { get; set; }
+    }
+
+    public class Ventas_Clientes_Completo_Dto
+    {
+        public VentasClientes_Dto Ventas_Cliente { get; set; }
+        public Clientes_Dto Cliente { get; set; }
+        public Planes_Dto Plan { get; set; }
+        public Usuarios_Dto Usuario { get; set; }
     }
 }

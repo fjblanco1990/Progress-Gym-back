@@ -41,6 +41,13 @@ namespace Prueba.Data.Implementacion.Usuarios
             return true;
         }
 
+        public bool GuardarLogUsuario(LogUsuario_Dto logUserDto)
+        {
+            var user = Mapper.Map<tbl_LogRegistroClientes>(logUserDto);
+            _Progress_gymEntities.tbl_LogRegistroClientes.Add(user);
+            _Progress_gymEntities.SaveChanges();
+            return true;
+        }
 
         public bool EliminarUsuario(int idUsuario)
         {

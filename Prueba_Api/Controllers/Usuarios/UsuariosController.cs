@@ -85,6 +85,21 @@ namespace Prueba_Api.Controllers.Usuarios
             }
         }
 
+        [HttpPost]
+        [Route("GuardarLogUsuario")]
+        public HttpResponseMessage GuardarLogUsuario(LogUsuario_Dto logUsuario)
+        {
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, this._IUsuarios_Bussines.GuardarLogUsuario(logUsuario));
+            }
+            catch (Exception ex)
+            {
+
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
 
 
     }

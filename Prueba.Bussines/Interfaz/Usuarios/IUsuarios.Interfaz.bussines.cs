@@ -15,6 +15,8 @@ namespace Prueba.Bussines.Interfaz.Usuarios
 
         bool EditarUsuario(Usuarios_Dto user);
 
+        bool GuardarLogUsuario(LogUsuario_Dto logUserDto);
+
         bool EliminarUsuario(int idUsuario);
     }
 }
