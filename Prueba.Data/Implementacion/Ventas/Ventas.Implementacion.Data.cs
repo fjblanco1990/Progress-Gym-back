@@ -159,7 +159,7 @@ namespace Prueba.Data.Implementacion.Ventas
 
         public List<Ventas_Dto> GetVentasAll()
         {
-            var response = _Progress_gymEntities.tbl_Ventas.ToList();
+            var response = _Progress_gymEntities.tbl_Ventas.ToList().OrderByDescending(id => id.Id_Venta);
             return Mapper.Map<List<Ventas_Dto>>(response);
         }
 

@@ -81,6 +81,14 @@ namespace Prueba.Data.Implementacion.Clientes
             {
                 tblClientes.Fecha_Actualizacion = clientes_Dto.Fecha_Actualizacion;
             }
+
+            if (!clientes_Dto.Reingreso)
+            {
+                tblClientes.Id_Usuario = tblClientes.Id_Usuario;
+            } else
+            {
+                tblClientes.Id_Usuario = clientes_Dto.Id_Usuario;
+            }
             tblClientes.Fecha_inicio = clientes_Dto.Fecha_inicio;
             tblClientes.Fecha_fin = clientes_Dto.Fecha_fin;
             
@@ -97,7 +105,7 @@ namespace Prueba.Data.Implementacion.Clientes
                 ventas_Dto.Fecha = clientes_Dto.Fecha_Actualizacion;
                 ventas_Dto.Hora_Venta_Cliente = DateTime.Now.ToShortTimeString();
                 ventas_Dto.Id_Cliente = clientes_Dto.Id_Cliente;
-
+                
                 var mapperVentas = Mapper.Map<tbl_ventas_clientes>(ventas_Dto);
                 _Pogress_gymEntities.tbl_ventas_clientes.Add(mapperVentas);
                 _Pogress_gymEntities.SaveChanges();

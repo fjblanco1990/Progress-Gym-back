@@ -20,6 +20,7 @@ namespace Prueba.Entities.Dtos.Ventas
         public int Valor_Venta { get; set; }
         public string Hora_Venta { get; set; }
         public int Id_Forma_pago { get; set; }
+        public string NameCliente { get; set; }
 
     }
 

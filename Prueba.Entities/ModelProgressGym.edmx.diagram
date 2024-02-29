@@ -11,11 +11,11 @@
         <EntityTypeShape EntityType="Pogress_gymModel.tbl_pro_Clientes" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Pogress_gymModel.tbl_pro_Usuarios" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Pogress_gymModel.tbl_LOG_IngresosXCliente" Width="1.5" PointX="5.375" PointY="3.75" />
-        <EntityTypeShape EntityType="Pogress_gymModel.tbl_Ventas" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="Pogress_gymModel.tbl_ventas_clientes" Width="1.5" PointX="7.375" PointY="3.75" />
         <EntityTypeShape EntityType="Pogress_gymModel.tbl_Conceptos" Width="1.5" PointX="5.375" PointY="6.75" />
         <EntityTypeShape EntityType="Pogress_gymModel.tbl_DeudasXCliente" Width="1.5" PointX="7.375" PointY="6.75" />
         <EntityTypeShape EntityType="Pogress_gymModel.tbl_LogRegistroClientes" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="Pogress_gymModel.tbl_Ventas" Width="1.5" PointX="9.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -110,6 +110,7 @@
           <Property Name="Valor_Venta" Type="int" Nullable="false" />
           <Property Name="Hora_Venta" Type="varchar" MaxLength="20" />
           <Property Name="Id_Forma_pago" Type="int" />
+          <Property Name="NameCliente" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tbl_ventas_clientes">
           <Key>
@@ -201,11 +202,11 @@
           <EntitySet Name="tbl_pro_Clientes" EntityType="Self.tbl_pro_Clientes" />
           <EntitySet Name="tbl_pro_Usuarios" EntityType="Self.tbl_pro_Usuarios" />
           <EntitySet Name="tbl_LOG_IngresosXCliente" EntityType="Pogress_gymModel.tbl_LOG_IngresosXCliente" />
-          <EntitySet Name="tbl_Ventas" EntityType="Pogress_gymModel.tbl_Ventas" />
           <EntitySet Name="tbl_ventas_clientes" EntityType="Pogress_gymModel.tbl_ventas_clientes" />
           <EntitySet Name="tbl_Conceptos" EntityType="Pogress_gymModel.tbl_Conceptos" />
           <EntitySet Name="tbl_DeudasXCliente" EntityType="Pogress_gymModel.tbl_DeudasXCliente" />
           <EntitySet Name="tbl_LogRegistroClientes" EntityType="Pogress_gymModel.tbl_LogRegistroClientes" />
+          <EntitySet Name="tbl_Ventas" EntityType="Pogress_gymModel.tbl_Ventas" />
         </EntityContainer>
         <EntityType Name="tbl_LOG_IngresosXCliente">
           <Key>
@@ -215,18 +216,6 @@
           <Property Name="Id_Cliente" Type="Int32" Nullable="false" />
           <Property Name="Fecha_Ingreso" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Hora_Ingreso" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="tbl_Ventas">
-          <Key>
-            <PropertyRef Name="Id_Venta" />
-          </Key>
-          <Property Name="Id_Venta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
-          <Property Name="Fecha_Ingreso" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Id_Concepto" Type="Int32" Nullable="false" />
-          <Property Name="Valor_Venta" Type="Int32" Nullable="false" />
-          <Property Name="Hora_Venta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Id_Forma_pago" Type="Int32" />
         </EntityType>
         <EntityType Name="tbl_ventas_clientes">
           <Key>
@@ -268,6 +257,19 @@
           <Property Name="Fecha_registro" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Accion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="info_data" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_Ventas">
+          <Key>
+            <PropertyRef Name="Id_Venta" />
+          </Key>
+          <Property Name="Id_Venta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Ingreso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Id_Concepto" Type="Int32" Nullable="false" />
+          <Property Name="Valor_Venta" Type="Int32" Nullable="false" />
+          <Property Name="Hora_Venta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Forma_pago" Type="Int32" />
+          <Property Name="NameCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -345,19 +347,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tbl_Ventas">
-            <EntityTypeMapping TypeName="Pogress_gymModel.tbl_Ventas">
-              <MappingFragment StoreEntitySet="tbl_Ventas">
-                <ScalarProperty Name="Id_Forma_pago" ColumnName="Id_Forma_pago" />
-                <ScalarProperty Name="Hora_Venta" ColumnName="Hora_Venta" />
-                <ScalarProperty Name="Valor_Venta" ColumnName="Valor_Venta" />
-                <ScalarProperty Name="Id_Concepto" ColumnName="Id_Concepto" />
-                <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
-                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
-                <ScalarProperty Name="Id_Venta" ColumnName="Id_Venta" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tbl_ventas_clientes">
             <EntityTypeMapping TypeName="Pogress_gymModel.tbl_ventas_clientes">
               <MappingFragment StoreEntitySet="tbl_ventas_clientes">
@@ -400,6 +389,20 @@
                 <ScalarProperty Name="Fecha_registro" ColumnName="Fecha_registro" />
                 <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
                 <ScalarProperty Name="Id_LogRegistro" ColumnName="Id_LogRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Ventas">
+            <EntityTypeMapping TypeName="Pogress_gymModel.tbl_Ventas">
+              <MappingFragment StoreEntitySet="tbl_Ventas">
+                <ScalarProperty Name="NameCliente" ColumnName="NameCliente" />
+                <ScalarProperty Name="Id_Forma_pago" ColumnName="Id_Forma_pago" />
+                <ScalarProperty Name="Hora_Venta" ColumnName="Hora_Venta" />
+                <ScalarProperty Name="Valor_Venta" ColumnName="Valor_Venta" />
+                <ScalarProperty Name="Id_Concepto" ColumnName="Id_Concepto" />
+                <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Id_Venta" ColumnName="Id_Venta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

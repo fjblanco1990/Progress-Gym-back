@@ -21,5 +21,6 @@ namespace Prueba.Entities
         public int Valor_Venta { get; set; }
         public string Hora_Venta { get; set; }
         public Nullable<int> Id_Forma_pago { get; set; }
+        public string NameCliente { get; set; }
     }
 }
